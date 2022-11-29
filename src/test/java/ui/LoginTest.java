@@ -1,3 +1,5 @@
+package ui;
+
 import by.academy.steps.LoginSteps;
 import by.academy.ui.LoggedInPage;
 import by.academy.ui.LoginPage;

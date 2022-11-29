@@ -5,7 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
-import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 import static io.github.bonigarcia.wdm.WebDriverManager.firefoxdriver;
 
 public class DriverSingleton {
@@ -24,8 +23,9 @@ public class DriverSingleton {
                     driver.get("http://users.bugred.ru/user/login/index.html");
                 }
                 default: {
-                    chromedriver().setup();
                     driver = new ChromeDriver();
+                    driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
                     driver.get("http://users.bugred.ru/user/login/index.html");
                 }
             }

@@ -1,3 +1,5 @@
+package ui;
+
 import by.academy.steps.RegistrationSteps;
 import by.academy.ui.LoggedInPage;
 import org.junit.jupiter.api.Assertions;
@@ -23,5 +25,15 @@ public class RegistrationTest extends BaseTest {
         LoggedInPage registeredUser = registrationSteps.validUserRegistration(name, email, password);
 
         Assertions.assertEquals(name, registeredUser.getUserName());
+    }
+    @Test
+    public void checkInvalidRegistrationProcedure() {
+        registrationSteps = new RegistrationSteps(getDriver());
+        String name = "Cavid03";
+        String invalidEmail = "applecom";
+        String password = "1000";
+        registrationSteps.userRegistrationWithoutEmail(name, invalidEmail, password);
+
+        Assertions.assertTrue(registrationSteps.isIncorrectEmailMessagePresent());
     }
 }

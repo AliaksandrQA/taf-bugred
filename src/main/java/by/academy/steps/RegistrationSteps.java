@@ -28,30 +28,15 @@ public class RegistrationSteps extends BasePage {
         return new LoggedInPage(getDriver());
     }
 
-    public RegistrationPage UserRegistrationWithoutName(String email, String password) {
-        registrationPage.enterEmail(email);
-        registrationPage.enterPassword(password);
-        registrationPage.clickRegistrationButton();
-        return new RegistrationPage(getDriver());
-    }
 
-    public RegistrationPage UserRegistrationWithoutEmail(String name, String password) {
+    public RegistrationPage userRegistrationWithoutEmail(String name, String password,String email) {
         registrationPage.enterUserName(name);
         registrationPage.enterPassword(password);
+        registrationPage.enterEmail(password);
         registrationPage.clickRegistrationButton();
         return new RegistrationPage(getDriver());
     }
-
-    public RegistrationPage UserRegistrationWithoutPassword(String name, String email) {
-        registrationPage.enterUserName(name);
-        registrationPage.enterEmail(email);
-        registrationPage.clickRegistrationButton();
-        return new RegistrationPage(getDriver());
+    public boolean isIncorrectEmailMessagePresent() {
+        return registrationPage.isIncorrectEmailNotificationPresent();
     }
-
-    public RegistrationPage UserRegistrationMandatoryFields() {
-        registrationPage.clickRegistrationButton();
-        return new RegistrationPage(getDriver());
-    }
-
 }

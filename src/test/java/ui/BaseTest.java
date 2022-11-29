@@ -8,8 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class BaseTest {
-    protected static WebDriver driver;
-
+//    protected static WebDriver driver;
+//
 //    @BeforeEach
 //    public void setWebDriver() {
 //        driver = new ChromeDriver();

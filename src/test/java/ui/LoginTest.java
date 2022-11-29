@@ -24,9 +24,9 @@ public class LoginTest extends BaseTest {
         String testUserMail = "testUser0101@gmail.com";
         String testUserPassword = "1111";
 
-        LoggedInPage login = steps.validLogin(testUserMail, testUserPassword);
+        LoggedInPage loggedInUser = steps.validLogin(testUserMail, testUserPassword);
 
-        Assertions.assertTrue(login.isUserCabinetPresent());
+        Assertions.assertTrue(loggedInUser.isUserCabinetPresent());
     }
 
     @Test
@@ -35,9 +35,9 @@ public class LoginTest extends BaseTest {
         String testUserMail = "testUser0101@gmail.com";
         String testUserPassword = "2222";
 
-        LoginPage loginPage = steps.invalidLogin(testUserMail, testUserPassword);
+        LoginPage invalidUser = steps.invalidLogin(testUserMail, testUserPassword);
 
-        Assertions.assertTrue(loginPage.isAuthorizationMessagePresent());
+        Assertions.assertTrue(invalidUser.isAuthorizationMessagePresent());
     }
     @Test
     public void checkLoginWithInvalidEmail() {
@@ -45,9 +45,9 @@ public class LoginTest extends BaseTest {
         String testUserMail = "test01User0101@gmail.com";
         String testUserPassword = "1111";
 
-        LoginPage loginPage = steps.invalidLogin(testUserMail, testUserPassword);
+        LoginPage invalidUser = steps.invalidLogin(testUserMail, testUserPassword);
 
-        Assertions.assertTrue(loginPage.isAuthorizationMessagePresent());
+        Assertions.assertTrue(invalidUser.isAuthorizationMessagePresent());
     }
 
 }

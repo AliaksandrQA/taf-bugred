@@ -1,6 +1,5 @@
 package by.academy.driver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -22,10 +21,12 @@ public class DriverSingleton {
                 case "firefox": {
                     firefoxdriver().setup();
                     driver = new FirefoxDriver();
+                    driver.get("http://users.bugred.ru/user/login/index.html");
                 }
                 default: {
                     chromedriver().setup();
                     driver = new ChromeDriver();
+                    driver.get("http://users.bugred.ru/user/login/index.html");
                 }
             }
             driver.manage().window().maximize();

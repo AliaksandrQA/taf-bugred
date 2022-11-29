@@ -77,11 +77,25 @@ public class ApiTest {
     void testUpdateUserInfo() {
         String endPoint = "http://users.bugred.ru/tasks/rest/fullupdateuser";
         String email = "user1@test.ru";
-        String inn = "696969";
+        String name = "User";
+        String name1 = "User";
+        String surname1 = "User";
+        String fathername1 = "User";
+        String cat = "User";
+        String dog = "User";
+        String parrot = "User";
+        String cavy = "User";
+        String hamster = "User";
+        String squirrel = "User";
+        String phone = "89822510279";
+        String inn = "";
+        String adres = "dl,lrg";
         String gender = "m";
         String birthday = "1990-02-01";
         String date_start = "2020-10-19";
-        String requestBody = String.format("{\"email\":\"%s\",\"inn\":\"%s\",\"gender\":\"%s\",\"birthday\":\"%s\",\"date_start\":\"%s\"}", email, inn, gender, birthday, date_start);
+        String hobby = "java";
+        String requestBody = String.format("{\"email\":\"%s\",\"name\":\"%s\",\"name1\":\"%s\",\"surname1\":\"%s\",\"fathername1\":\"%s\",\"cat\":\"%s\",\"dog\":\"%s\",\"parrot\":\"%s\",\"cavy\":\"%s\",\"hamster\":\"%s\",\"squirrel\":\"%s\",\"phone\":\"%s\",\"inn\":\"%s\",\"adres\":\"%s\",\"gender\":\"%s\",\"birthday\":\"%s\",\"date_start\":\"%s\",\"hobby\":\"%s\"}",
+                email, name, name1, surname1, fathername1, cat, dog,parrot,cavy,hamster, squirrel,phone,inn,adres,gender,birthday,date_start,hobby);
 
         given()
                 .header("Content-type", "application/json")
@@ -90,8 +104,8 @@ public class ApiTest {
                 .when()
                 .get(endPoint)
                 .then().statusCode(200)
-                .log().all()
-                .body("email", is(email));
+                .log().all();
+        System.out.println(hobby);
     }
 
     @Test

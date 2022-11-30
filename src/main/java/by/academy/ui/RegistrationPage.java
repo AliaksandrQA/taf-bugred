@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class RegistrationPage extends BasePage {
     protected final By registrationButton = By.xpath("//input[@value='Зарегистрироваться']");
-    protected final By usernameField = By.xpath("//input[@name='name']");
+    protected final By usernameField = By.name("name");
     protected final By registrationTitle = By.xpath("//body/div[3]/div[1]/div[2]/h2");
     protected final By emailField = By.xpath("/html/body/div[3]/div[1]/div[2]/form/table/tbody/tr[2]/td[2]/input");
     protected final By passwordField = By.xpath("/html/body/div[3]/div[1]/div[2]/form/table/tbody/tr[3]/td[2]/input");

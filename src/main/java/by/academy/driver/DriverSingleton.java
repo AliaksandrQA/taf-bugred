@@ -18,6 +18,7 @@ public class DriverSingleton {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICITLY_WAIT));
+            driver.get("http://users.bugred.ru/user/login/index.html");
         }
         return driver;
     }

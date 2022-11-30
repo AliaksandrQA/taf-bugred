@@ -25,16 +25,12 @@ public class LoginSteps extends BasePage {
     }
 
     public LoggedInPage validLogin(String email, String password) {
-        loginPage.enterEmail(email);
-        loginPage.enterPassword(password);
-        loginPage.clickAuthorizationButton();
+        loginPage.enterEmail(email).enterPassword(password).clickAuthorizationButton();
         return new LoggedInPage(getDriver());
     }
 
     public LoginPage invalidLogin(String email, String password) {
-        loginPage.enterEmail(email);
-        loginPage.enterPassword(password);
-        loginPage.clickAuthorizationButton();
+        loginPage.enterEmail(email).enterPassword(password).clickAuthorizationButton();
         return new LoginPage(getDriver());
     }
 }

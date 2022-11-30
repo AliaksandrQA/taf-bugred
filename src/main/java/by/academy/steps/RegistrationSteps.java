@@ -21,21 +21,20 @@ public class RegistrationSteps extends BasePage {
     }
 
     public LoggedInPage validUserRegistration(String name, String email, String password) {
-        registrationPage.enterUserName(name);
-        registrationPage.enterEmail(email);
-        registrationPage.enterPassword(password);
-        registrationPage.clickRegistrationButton();
+        fillRegistrationForm(registrationPage.enterUserName(name).enterEmail(email).enterPassword(password));
         return new LoggedInPage(getDriver());
     }
 
 
-    public RegistrationPage userRegistrationWithoutEmail(String name, String password,String email) {
-        registrationPage.enterUserName(name);
-        registrationPage.enterPassword(password);
-        registrationPage.enterEmail(password);
-        registrationPage.clickRegistrationButton();
+    public RegistrationPage userRegistrationWithoutEmail(String name, String password, String email) {
+        fillRegistrationForm(registrationPage.enterUserName(name).enterPassword(password).enterEmail(password));
         return new RegistrationPage(getDriver());
     }
+
+    public void fillRegistrationForm(RegistrationPage registrationPage) {
+        registrationPage.clickRegistrationButton();
+    }
+
     public boolean isIncorrectEmailMessagePresent() {
         return registrationPage.isIncorrectEmailNotificationPresent();
     }

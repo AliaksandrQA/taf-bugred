@@ -13,14 +13,11 @@ public class LoggedInPage extends BasePage {
         super(driver);
     }
 
-    public String getUserInfo(By element) {
-        WebElement userProfileName = driver.findElement(element);
-        return userProfileName.getText();
-    }
     public boolean isUserCabinetPresent() {
         return driver.findElement(loggedInUserCabinetInfo).isDisplayed();
     }
-    public String getUserName(){
+
+    public String getUserName() {
         waitForElementVisibility(loggedInUserCabinetInfo);
         return getDriver().findElement(loggedInUserCabinetInfo).getText();
     }

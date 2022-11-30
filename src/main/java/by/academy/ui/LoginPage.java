@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
-    protected final By emailField = By.xpath("//input[@name='login']");
+    protected final By emailField = By.name("login");
     protected final By passwordField = By.xpath("//form[@action='/user/login/index.html']/table/tbody/tr[2]/td[2]//input");
     protected final By authorizationButton = By.xpath("//input[@value='Авторизоваться']");
     protected final By loginTitle = By.xpath("//body/div[3]/div[1]/div[1]/h2");

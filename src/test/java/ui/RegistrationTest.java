@@ -2,6 +2,7 @@ package ui;
 
 import by.academy.steps.RegistrationSteps;
 import by.academy.ui.LoggedInPage;
+import by.academy.util.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,9 +20,9 @@ public class RegistrationTest extends BaseTest {
     @Test
     public void checkProperRegistrationProcedure() {
         registrationSteps = new RegistrationSteps(getDriver());
-        String name = "avid03";
-        String email = "test01@ebay.com";
-        String password = "1000";
+        String name = User.generateRandomUserData();
+        String password = User.generateRandomUserData();
+        String email = User.generateRandomUserEmail();
         LoggedInPage registeredUser = registrationSteps.validUserRegistration(name, email, password);
 
         Assertions.assertEquals(name, registeredUser.getUserName());
@@ -29,9 +30,9 @@ public class RegistrationTest extends BaseTest {
     @Test
     public void checkInvalidRegistrationProcedure() {
         registrationSteps = new RegistrationSteps(getDriver());
-        String name = "Cavid03";
-        String invalidEmail = "applecom";
-        String password = "1000";
+        String name = User.generateRandomUserData();
+        String password = User.generateRandomUserData();
+        String invalidEmail = User.generateRandomUserData();
         registrationSteps.userRegistrationWithoutEmail(name, invalidEmail, password);
 
         Assertions.assertTrue(registrationSteps.isIncorrectEmailMessagePresent());
